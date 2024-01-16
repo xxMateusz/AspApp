@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model AppPost.Models.Post
+
+@{
+    ViewData["Title"] = "Edytuj Post";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label">Zawartość</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Author" class="form-label">Autor</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PublicationDate" class="form-label">Data Publikacji</label>
+        <input asp-for="PublicationDate" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Tags" class="form-label">Tagi</label>
+        <input asp-for="Tags" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Comment" class="form-label">Komentarz</label>
+        <textarea asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Powrót do listy postów</a>
